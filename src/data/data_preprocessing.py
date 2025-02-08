@@ -68,7 +68,7 @@ def main():
         #Y_train_preprocessed_data = normalize_text(train_data)
         #Y_test_preprocessed_data = normalize_text(test_data)
 
-        logger.debug('Train columns after normalize_text: %s', train_preprocessed_data.columns.tolist())
+        #logger.debug('Train columns after normalize_text: %s', train_preprocessed_data.columns.tolist())
         #logger.debug('Test columns after normalize_text: %s', test_preprocessed_data.columns.tolist())
 
         X_train_processed_data = divide_data_X(train_preprocessed_data)
