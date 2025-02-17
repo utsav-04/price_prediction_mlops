@@ -21,6 +21,7 @@ stages:
     - src/features/feature_engineering.py
     outs:
     - data/processed
+    - models/scaler.pkl
   model_preparation:
     cmd: python src/model/model_building.py
     deps:
@@ -44,4 +45,9 @@ stages:
     - reports/metrics.json
     outs:
     - reports/experiment_info.json
+  register_model:
+    cmd: python src/model/register_model.py
+    deps:
+    - reports/experiment_info.json
+    - src/model/register_model.py
   

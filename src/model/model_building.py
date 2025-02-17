@@ -62,7 +62,7 @@ def train_model(X_train: np.ndarray, y_train: np.ndarray, param_dist,cv,n_iter) 
         rf_random = RandomizedSearchCV(rf, param_distributions=param_dist, n_iter=n_iter, cv=cv, random_state=42, n_jobs=-1)
         rf_random.fit(X_train, y_train)
         logger.debug('Model training completed')
-        return rf_random
+        return rf_random.best_estimator_
     except Exception as e:
         logger.error('Error during model training: %s', e)
         raise

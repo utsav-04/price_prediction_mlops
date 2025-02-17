@@ -4,6 +4,7 @@ import os
 import yaml
 import logging
 from sklearn.preprocessing import StandardScaler
+import pickle
 
 # logging configuration
 logger = logging.getLogger('feature_engineering')
@@ -53,6 +54,7 @@ def apply_Scaler(train_data: pd.DataFrame, test_data: pd.DataFrame) -> tuple:
         X_train_scaled = scaler.fit_transform(train_data)
         X_test_scaled = scaler.transform(test_data)
 
+        pickle.dump(scaler, open('models/scaler.pkl', 'wb'))
         train_data_scaled_df = pd.DataFrame(X_train_scaled, columns=train_data.columns, index=train_data.index)
         test_data_scaled_df = pd.DataFrame(X_test_scaled, columns=test_data.columns, index=test_data.index)
 

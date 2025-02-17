@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Specification Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Pure black background */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00aaff; /* Neon blue for contrast */
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.6); /* Glass-like black transparency */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 20px 8px rgb(222 233 233 / 30%); /* Glowing cyan shadow */
+            
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #00e6e6; /* Light cyan for better readability */
+        }
+
+        input[type="text"], select {
+            width: 95%;
+            padding: 10px 10px 10px 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        button {
+            width: 100%;
+            background-color: #00aaff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0088cc;
+            box-shadow: 0 0 10px rgba(0, 170, 255, 0.8);
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+
+        .result-container {
+            max-width: 500px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #00e6e6;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+            color: #fff;
+            backdrop-filter: blur(10px);
+        }
+
+        .result-container h3 {
+            margin: 0 0 10px;
+            color: #00e6e6;
+        }
+
+        .result-container p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        select {
+            appearance: none; /* Removes default dropdown styling */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: rgba(0, 0, 0, 0.7); /* Matches the form background */
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        
+        /* Dropdown options */
+        select option {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Price Prediction</h1>
+    <form action="/predict" method="POST">
+        <!-- Input fields for the first 10 fields -->
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" name="rating"><br><br>
+
+        <label for="processor_speed">Processor Speed:</label>
+        <input type="text" id="processor_speed" name="processor_speed"><br><br>
+
+        <label for="battery_capacity">Battery Capacity:</label>
+        <input type="text" id="battery_capacity" name="battery_capacity"><br><br>
+
+        <label for="ram_capacity">RAM Capacity:</label>
+        <input type="text" id="ram_capacity" name="ram_capacity"><br><br>
+
+        <label for="internal_memory">Internal Memory:</label>
+        <input type="text" id="internal_memory" name="internal_memory"><br><br>
+
+        <label for="screen_size">Screen Size:</label>
+        <input type="text" id="screen_size" name="screen_size"><br><br>
+
+        <label for="refresh_rate">Refresh Rate:</label>
+        <input type="text" id="refresh_rate" name="refresh_rate"><br><br>
+
+        <label for="num_rear_cameras">Number of Rear Cameras:</label>
+        <input type="text" id="num_rear_cameras" name="num_rear_cameras"><br><br>
+
+        <label for="num_front_cameras">Number of Front Cameras:</label>
+        <input type="text" id="num_front_cameras" name="num_front_cameras"><br><br>
+
+        <label for="extended_memory_available">Extended Memory Available:</label>
+        <input type="text" id="extended_memory_available" name="extended_memory_available"><br><br>
+
+        <!-- Select box for extended_upto -->
+        <label for="extended_upto">Extended Up To:</label>
+        <select id="extended_upto" name="extended_upto">
+            <option value="128">128</option>
+            <option value="256">256</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+        </select><br><br>
+
+        <!-- Select box for has_ir_blaster -->
+        <label for="has_ir_blaster">Has IR Blaster:</label>
+        <select id="has_ir_blaster" name="has_ir_blaster">
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select><br><br>
+
+        <!-- Select box for brand -->
+        <label for="brand">Brand:</label>
+        <select id="brand" name="brand">
+            <option value="Google">Google</option>
+            <option value="Honor">Honor</option>
+            <option value="Huawei">Huawei</option>
+            <option value="IKall">IKall</option>
+            <option value="Infinix">Infinix</option>
+            <option value="iQOO">iQOO</option>
+            <option value="Itel">Itel</option>
+            <option value="Jio">Jio</option>
+            <option value="Lava">Lava</option>
+            <option value="Letv">Letv</option>
+            <option value="LG">LG</option>
+            <option value="Motorola">Motorola</option>
+            <option value="Nokia">Nokia</option>
+            <option value="OnePlus">OnePlus</option>
+            <option value="Oppo">Oppo</option>
+            <option value="Poco">Poco</option>
+            <option value="Realme">Realme</option>
+            <option value="Redmi">Redmi</option>
+            <option value="Royole">Royole</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Sony">Sony</option>
+            <option value="Tecno">Tecno</option>
+            <option value="Vivo">Vivo</option>
+            <option value="Xiaomi">Xiaomi</option>
+            <option value="ZTE">ZTE</option>
+        </select><br><br>
+
+        <button type="submit" value="Predict">Submit</button>
+    </form>
+
+    {% if result %}
+        <div class="result-container">
+            <h3>Price of Requested Phone:</h3>
+            <p>{{ result | float | round(2) }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
